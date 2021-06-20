@@ -1,0 +1,23 @@
+
+<dx-data-grid
+    id="grid"
+    [dataSource]="dataSource"  
+    [repaintChangesOnly]="true"
+    [showBorders]="true">
+
+    <dxo-scrolling mode="virtual"></dxo-scrolling>
+    <dxo-editing
+        mode="cell"
+        [allowAdding]="true"
+        [allowUpdating]="true"
+        [allowDeleting]="true">
+    </dxo-editing>
+
+    <dxi-column dataField="cin" caption="CIN"dataType="number"[width]="70"></dxi-column>
+    <dxi-column dataField="name" caption="FirstName"></dxi-column>
+    <dxi-column dataField="surname" caption="LastName"></dxi-column>
+    <dxi-column dataField="dateBirth" caption="Birth Date" dataType="date"></dxi-column>
+    <dxi-column dataField="tel" caption="Phone" dataType="number"> </dxi-column>
+    <dxi-column dataField="email" caption="E-mail" dataType="email"> </dxi-column>
+
+   </dx-data-grid>

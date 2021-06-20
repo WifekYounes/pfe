@@ -1,0 +1,48 @@
+
+<br><br>
+<h2  style="text-align: center;">Manage Profile</h2>
+<br>
+<dx-form id="form"
+	[formData]="this.subuser">
+	<dxi-item itemType="group" cssClass="first-group" [colCount]="4">
+		<dxi-item>
+
+        <img src={{this.subuser.imageurl}} >
+
+        <dx-file-uploader
+        selectButtonText="Select photo"
+        labelText=""
+        accept="image/*"
+        [(value)]="img"
+        uploadMode="useForm">
+    </dx-file-uploader>
+
+		</dxi-item>
+		<dxi-item itemType="group" [colSpan]="3">
+      <dxi-item caption="CIN" dataField="cin"   disabled="true"></dxi-item>
+				<dxi-item dataField="username"></dxi-item>
+				<dxi-item dataField="password"  [editorOptions]="{ mode: 'password' }">
+
+        </dxi-item>
+				<dxi-item dataField="email"     disabled="true" [editorOptions]="{ width: '100%'}"></dxi-item>
+		</dxi-item>
+	</dxi-item>
+	<dxi-item itemType="group" cssClass="second-group" [colCount]="2" class="shadow p-3 mb-5 bg-white rounded">
+		<dxi-item itemType="group">
+
+			<dxi-item dataField="name" caption="First Name"></dxi-item>
+      <dxi-item dataField="dateBirth" caption="BirthDate" editorType="dxDateBox"></dxi-item>
+
+		</dxi-item>
+		<dxi-item itemType="group">
+			<dxi-item dataField="surname" caption="Last Name"></dxi-item>
+			<dxi-item dataField="tel" [label]="{text: 'Phone'}"  disabled="true"></dxi-item>
+		</dxi-item>
+	</dxi-item>
+</dx-form>
+<br>
+&nbsp;&nbsp;
+<dx-button icon="edit" type="success" text="Update" (onClick)="save()"> </dx-button>
+
+
+<br>

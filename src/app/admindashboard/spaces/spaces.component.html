@@ -1,0 +1,123 @@
+
+<div id="scrollview-demo">
+  <dx-scroll-view #scrollView
+        id="scrollview"
+        [scrollByContent]="true"
+        [scrollByThumb]="true"
+        [showScrollbar]="true"
+        [bounceEnabled]="false"
+        reachBottomText="Updating...">
+<h4 class="display-4"  style="text-align: center;">Spaces Management</h4>
+<hr>
+
+<dx-button id="exportButton"
+    icon="exportpdf"
+    text="Export to PDF"
+    stylingMode="outlined"
+    type="danger"
+    (onClick)="exportGrid1()">
+</dx-button>
+<dx-data-grid id="gridContainer" class="table shadow p-3 mb-5 bg-white rounded"
+[showBorders]="true"
+  [rowAlternationEnabled]="true"
+
+[dataSource]="dataSource"
+(onRowInserted)="addSpace($event)"
+(onRowRemoved)="DeleteSpace($event)"
+(onRowUpdated)="updateSpace($event)"
+(onExporting)="onExporting1($event)"
+keyExpr="idSpace">
+
+<dxo-export [enabled]="true"></dxo-export>
+<dxo-paging [pageSize]="5"></dxo-paging>
+<dxo-search-panel
+[visible]="true"
+[highlightCaseSensitive]="true"
+></dxo-search-panel>
+
+<dxo-editing mode="popup"   [useIcons]="true"     [allowUpdating]="true"    [allowDeleting]="true" ></dxo-editing>
+
+
+<dxi-column dataField="idSpace" caption="idSpace" [width] ="100">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+</dxi-column>
+
+<dxi-column dataField="name" caption="Name" [width] ="100">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+</dxi-column>
+
+<dxi-column dataField="longitude" caption="Longitude" dataType="number">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+</dxi-column>
+<dxi-column dataField="latitude" caption="Latitude" dataType="number">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+</dxi-column>
+
+
+<dxi-column dataField="idArea" caption="Area"  >
+
+  <dxo-lookup
+  [dataSource]="areas"
+  displayExpr="name"
+  valueExpr="idArea">
+</dxo-lookup>
+<dxi-validation-rule type="required"></dxi-validation-rule>
+</dxi-column>
+
+<dxi-column type="buttons" [width]="110" caption="Actions">
+
+  <dxi-button name="edit"></dxi-button>
+  <dxi-button name="delete"></dxi-button>
+  </dxi-column>
+</dx-data-grid>
+  <br>
+
+
+
+<h4 class="display-4"  style="text-align: center;">Areas Management</h4>
+<hr>
+<dx-button id="exportButton"
+    icon="exportpdf"
+    text="Export to PDF"
+    stylingMode="outlined"
+    type="danger"
+    (onClick)="exportGrid2()">
+</dx-button>
+
+<dx-data-grid id="gridContainer" #aa class="table shadow p-3 mb-5 bg-white rounded"
+[showBorders]="true"
+[dataSource]="xx"
+[rowAlternationEnabled]="true"
+(onRowInserted)="addArea($event)"
+(onRowRemoved)="DeleteArea($event)"
+(onExporting)="onExporting2($event)"
+keyExpr="idArea">
+
+
+<dxo-paging [pageSize]="5"></dxo-paging>
+<dxo-export [enabled]="true"></dxo-export>
+<dxo-search-panel
+[visible]="true"
+[highlightCaseSensitive]="true"
+></dxo-search-panel>
+<dxo-editing mode="cell"   [useIcons]="true"   [allowUpdating]="true" [allowDeleting]="true" ></dxo-editing>
+
+
+<dxi-column dataField="idArea" caption="idArea">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+</dxi-column>
+<dxi-column dataField="name" caption="Name">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+</dxi-column>
+<dxi-column dataField="geojson" caption="GeoJson">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+</dxi-column>
+<dxi-column type="buttons" [width]="110" caption="Actions">
+
+  <dxi-button name="delete"></dxi-button>
+
+</dxi-column>
+
+</dx-data-grid>
+
+</dx-scroll-view>

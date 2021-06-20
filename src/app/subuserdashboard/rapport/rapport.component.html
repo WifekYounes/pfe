@@ -1,0 +1,193 @@
+
+<h4  style="text-align: center;">Select the module(s) that will build your report</h4>
+<hr>
+
+
+
+
+  <div class="dx-fieldset">
+    <div class="dx-fieldset-header">Choose a device :</div>
+    <div class="dx-field">
+      <dx-lookup
+      [dataSource]="devices"
+      displayExpr="name"
+      [(value)]="reference"
+      valueExpr="reference">
+      <dxo-drop-down-options [showTitle]="false"></dxo-drop-down-options>
+  </dx-lookup>
+    </div>
+  </div>
+
+
+
+<div *ngIf=" this.reference!=undefined">
+  <div class="dx-fieldset">
+    <div class="dx-fieldset-header">Choose a module to export</div>
+    <div class="dx-field">
+      <dx-lookup
+      [dataSource]="choices"
+      displayExpr="module"
+      [(value)]="module"
+      valueExpr="module">
+      <dxo-drop-down-options [showTitle]="false"></dxo-drop-down-options>
+  </dx-lookup>
+    </div>
+  </div></div>
+
+  <div *ngIf=" this.reference!=undefined && this.module!=undefined" >
+
+<div class="dx-fieldset">
+  <div class="dx-fieldset-header">Choose the export format</div>
+  <div class="dx-field">
+    <dx-lookup
+    [dataSource]="formats"
+    displayExpr="type"
+    [(value)]="type"
+    valueExpr="type">
+    <dxo-drop-down-options [showTitle]="false"></dxo-drop-down-options>
+</dx-lookup>
+  </div>
+</div></div>
+
+
+
+<div *ngIf=" (this.type!=undefined) && (this.module!=undefined)">
+  &nbsp;&nbsp;&nbsp;
+<dx-button
+icon="check"
+type="success"
+text="Generate"
+(onClick)="save()"
+id="log">
+</dx-button></div><br><br>
+
+
+
+
+<div [hidden]="true">
+
+  <dx-button id="exportButton"
+  icon="exportpdf"
+  text="Export to PDF"
+  stylingMode="outlined"
+  type="danger"
+  (onClick)="exportGrid1()">
+</dx-button>
+
+  <dx-data-grid id="gridContainer" #aaa
+  [showBorders]="true"
+  [dataSource]="alertsRef"
+  [rowAlternationEnabled]="true"
+  (onExporting)="onExporting1()"
+  keyExpr="date">
+
+
+  <dxo-paging [pageSize]="5"></dxo-paging>
+  <dxo-export [enabled]="true"></dxo-export>
+  <dxo-search-panel
+  [visible]="true"
+  [highlightCaseSensitive]="true"
+  ></dxo-search-panel>
+  <dxo-editing mode="cell"  ></dxo-editing>
+
+
+  <dxi-column dataField="date" caption="date">
+
+  </dxi-column>
+  <dxi-column dataField="reference"  caption="reference">
+
+  </dxi-column>
+  <dxi-column dataField="message" caption="message">
+
+  </dxi-column>
+
+
+  </dx-data-grid>
+
+  <br>
+
+
+
+  <dx-button id="exportButton"
+  icon="exportpdf"
+  text="Export to PDF"
+  stylingMode="outlined"
+  type="danger"
+  (onClick)="exportGrid2()">
+</dx-button>
+
+  <dx-data-grid id="gridContainer" #hhh
+  [showBorders]="true"
+  [dataSource]="historyRef"
+  [rowAlternationEnabled]="true"
+  (onExporting)="onExporting2()"
+  keyExpr="date">
+
+
+  <dxo-paging [pageSize]="5"></dxo-paging>
+  <dxo-export [enabled]="true"></dxo-export>
+  <dxo-search-panel
+  [visible]="true"
+  [highlightCaseSensitive]="true"
+  ></dxo-search-panel>
+  <dxo-editing mode="cell"  ></dxo-editing>
+
+
+  <dxi-column dataField="date" caption="date">
+
+  </dxi-column>
+  <dxi-column dataField="value"  caption="value">
+
+  </dxi-column>
+  <dxi-column dataField="reference" caption="reference">
+
+  </dxi-column>
+
+
+  </dx-data-grid>
+
+  <br>
+
+
+
+
+
+  <dx-button id="exportButton"
+  icon="exportpdf"
+  text="Export to PDF"
+  stylingMode="outlined"
+  type="danger"
+  (onClick)="exportGrid3()">
+</dx-button>
+
+  <dx-data-grid id="gridContainer" #hhhaaa
+  [showBorders]="true"
+  [dataSource]="historyAlertRef"
+  [rowAlternationEnabled]="true"
+  (onExporting)="onExporting3()"
+ >
+
+<div *ngFor="let ah of historyAlertRef; let i=index"><
+  <dxo-paging [pageSize]="5"></dxo-paging>
+  <dxo-export [enabled]="true"></dxo-export>
+  <dxo-search-panel
+  [visible]="true"
+  [highlightCaseSensitive]="true"
+  ></dxo-search-panel>
+  <dxo-editing mode="cell"  ></dxo-editing>
+
+  <dxi-column dataField={{ah[0]}}  caption="value"></dxi-column>
+  <dxi-column dataField={{ah[1]}}  caption="date"></dxi-column>
+
+
+  <dxi-column dataField={{ah[2]}}  caption="reference"></dxi-column>
+
+  <dxi-column dataField={{ah[3]}}  caption="message"></dxi-column>
+</div>
+  </dx-data-grid>
+
+
+
+</div>
+
+

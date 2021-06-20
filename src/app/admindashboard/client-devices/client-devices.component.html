@@ -1,0 +1,104 @@
+
+
+
+
+
+<h4 class="display-4" style="text-align: center;">Assign for each customer their own devices</h4>
+<hr>
+
+
+<br>
+
+
+
+<div class="dx-fieldset">
+  <div class="dx-fieldset-header">Choose the client :</div>
+  <div class="dx-field">
+    <dx-lookup
+    [dataSource]="users"
+    displayExpr="subuser.surname"
+    [(value)]="cinu"
+    valueExpr="cinu">
+    <dxo-drop-down-options [showTitle]="false"></dxo-drop-down-options>
+</dx-lookup>
+  </div>
+</div>
+
+<div class="dx-fieldset">
+  <div class="dx-fieldset-header">Choose their devices :</div>
+  <div class="dx-field">
+    <dx-lookup
+    [dataSource]="devices"
+    displayExpr="name"
+    [(value)]="reference"
+    valueExpr="reference">
+    <dxo-drop-down-options [showTitle]="false"></dxo-drop-down-options>
+</dx-lookup>
+  </div>
+</div>
+<dx-button
+icon="check"
+type="success"
+text="Assign"
+(onClick)="save()"
+id="button"
+>
+</dx-button>
+
+<br><br>
+<dx-button id="exportButton"
+    icon="exportpdf"
+    text="Export to PDF"
+    stylingMode="outlined"
+    type="danger"
+    (onClick)="exportGrid()">
+</dx-button>
+<dx-data-grid id="gridContainer" class="table shadow p-3 mb-5 bg-white rounded"
+[showBorders]="true"
+[dataSource]="listud"
+(onRowRemoved)="removeUserDevice($event)"
+(onExporting)="onExporting($event)"
+[rowAlternationEnabled]="true"
+keyExpr="udk">
+
+<dxo-editing
+mode="popup"
+[useIcons]="true"
+[allowAdding]="true"
+[allowUpdating]="true"
+[allowDeleting]="true"
+
+></dxo-editing>
+
+<dxo-export [enabled]="true"></dxo-export>
+<dxo-paging [pageSize]="5"></dxo-paging>
+
+<dxi-column dataField="udk.cinu" caption="CIN" >
+
+</dxi-column>
+
+
+
+<dxi-column dataField="udk.reference" caption="Reference"  >
+
+
+</dxi-column>
+
+<dxi-column dataField="dateAff" caption="Assignment date"   >
+
+
+</dxi-column>
+
+<dxi-column type="buttons" [width]="110" caption="Actions">
+
+
+  <dxi-button name="delete"></dxi-button>
+
+  </dxi-column>
+
+
+
+
+
+
+</dx-data-grid>

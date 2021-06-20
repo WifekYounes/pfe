@@ -1,0 +1,53 @@
+
+<body>
+
+  <a routerLink="/"><img src="../../assets/logo.png" id="logo"></a>
+  <div id="form-container"class="container">
+
+     <div class="form-login">
+         <h4>Account login</h4>
+         <br>
+  <dx-form
+          id="form"
+          [formData]="form">
+
+     <dxi-item dataField="username"
+      [(value)]="username" editorType="dxTextBox"id="userName"
+        [editorOptions]="{ stylingMode: 'filled', placeholder: 'Username'}">
+        <dxi-validation-rule type="required" message="Username is required"></dxi-validation-rule>
+      <!--  <dxi-validation-rule type="email" message="Email is invalid"></dxi-validation-rule>-->
+        <dxo-label [visible]="false"></dxo-label>
+      </dxi-item>
+
+      <dxi-item   dataField="password" id="userPassword"
+    [(value)]="password" editorType="dxTextBox"
+        [editorOptions]="{ stylingMode: 'filled', placeholder: 'Password', mode: 'password' }">
+        <dxi-validation-rule type="required" message="Password is required"></dxi-validation-rule>
+        <dxo-label [visible]="false"></dxo-label>
+      </dxi-item>
+
+
+
+
+  </dx-form>
+  <br>
+  <br>
+
+    &nbsp;&nbsp;
+      <dx-button
+      icon="check"
+      type="success"
+      text="LOGIN"
+      (onClick)="save()"
+      id="log">
+    </dx-button><br><br>
+    <a routerLink="../resetpassword" > Forgot your password ?</a><br>
+    <a routerLink="" > Go Home ?</a><br>
+  </div>
+
+
+   </div>
+  </body>
+  <app-footer></app-footer>
+
+

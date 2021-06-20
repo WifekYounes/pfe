@@ -1,0 +1,109 @@
+
+
+
+
+
+<h4 class="display-4" style="text-align: center;">Assign a space to my employees</h4>
+<hr>
+
+
+<br>
+
+
+
+<div class="dx-fieldset">
+  <div class="dx-fieldset-header">Choose my employee :</div>
+  <div class="dx-field">
+    <dx-lookup
+    [dataSource]="subusers"
+    displayExpr="surname"
+    [(value)]="cin"
+    valueExpr="cin">
+    <dxo-drop-down-options [showTitle]="false"></dxo-drop-down-options>
+</dx-lookup>
+  </div>
+</div>
+
+<div class="dx-fieldset">
+  <div class="dx-fieldset-header">Choose the space :</div>
+  <div class="dx-field">
+    <dx-lookup
+    [dataSource]="spaces"
+    displayExpr="name"
+    [(value)]="idSpace"
+    valueExpr="idSpace"
+  >
+    <dxo-drop-down-options [showTitle]="false"></dxo-drop-down-options>
+</dx-lookup>
+  </div>
+</div>
+<dx-button
+icon="check"
+type="success"
+text="Assign"
+(onClick)="save()"
+id="button"
+>
+</dx-button>
+
+<br><br>
+<dx-button id="exportButton"
+    icon="exportpdf"
+    text="Export to PDF"
+    stylingMode="outlined"
+    type="danger"
+    (onClick)="exportGrid()">
+</dx-button>
+<dx-data-grid id="gridContainer" class="table shadow p-3 mb-5 bg-white rounded"
+[showBorders]="true"
+[dataSource]="listud"
+(onRowRemoved)="removeSubUserSpace($event)"
+(onExporting)="onExporting($event)"
+[rowAlternationEnabled]="true"
+
+[rowAlternationEnabled]="true"
+keyExpr="sus_key">
+
+
+
+<dxo-editing
+mode="popup"
+[useIcons]="true"
+
+[allowDeleting]="true"
+
+></dxo-editing>
+
+<dxo-export [enabled]="true"></dxo-export>
+<dxo-paging [pageSize]="5"></dxo-paging>
+
+
+<dxi-column dataField="sus_key.cin" caption="CIN" >
+
+</dxi-column>
+
+
+
+<dxi-column dataField="sus_key.idSpace" caption="Space"   >
+
+
+</dxi-column>
+
+<dxi-column dataField="dateAff" caption="Assignment date"   >
+
+
+</dxi-column>
+
+<dxi-column type="buttons" [width]="110" caption="Actions">
+
+
+  <dxi-button name="delete"></dxi-button>
+
+  </dxi-column>
+
+
+
+
+
+
+</dx-data-grid>

@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400&display=swap');
+
+@import"../../bootstrap.css";
+.section {
+    padding: 100px 0;
+    position: relative;
+}
+
+#cap{
+  width: 350;
+  height: 280;
+}
+.gray-bg {
+    background-color: #ebf4fa;
+}
+/* Blog
+---------------------*/
+.blog-grid {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.blog-grid .blog-img {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.blog-grid .blog-img .date {
+  position: absolute;
+  background: #3a3973;
+  color: #ffffff;
+  padding: 8px 15px;
+  left: 0;
+  top: 10px;
+  font-size: 14px;
+}
+.blog-grid .blog-info {
+  box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+  border-radius: 5px;
+  background: #ffffff;
+  padding: 20px;
+  margin: -30px 20px 0;
+  position: relative;
+}
+.blog-grid .blog-info h5 {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 0 10px;
+}
+.blog-grid .blog-info h5 a {
+  color: #3a3973;
+}
+.blog-grid .blog-info p {
+  margin: 0;
+}
+.blog-grid .blog-info .btn-bar {
+  margin-top: 20px;
+}
+
+.px-btn-arrow {
+    padding: 0 50px 0 0;
+    line-height: 20px;
+    position: relative;
+    display: inline-block;
+    color: #fe4f6c;
+    -moz-transition: ease all 0.3s;
+    -o-transition: ease all 0.3s;
+    -webkit-transition: ease all 0.3s;
+    transition: ease all 0.3s;
+}
+
+
+.px-btn-arrow .arrow {
+    width: 13px;
+    height: 2px;
+    background: currentColor;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 25px;
+    -moz-transition: ease right 0.3s;
+    -o-transition: ease right 0.3s;
+    -webkit-transition: ease right 0.3s;
+    transition: ease right 0.3s;
+}
+
+.px-btn-arrow .arrow:after {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid currentColor;
+    border-top: 2px solid currentColor;
+    content: "";
+    position: absolute;
+    top: -3px;
+    right: 0;
+    display: inline-block;
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+*{
+ margin:0;
+ padding:0;
+}
+body{
+ font-family:'Roboto',sans-serif;
+  overflow-x:hidden;
+}
+nav{
+display:flex;
+background-color: hsl(241, 25%, 47%);
+justify-content: space-around;
+padding:20px 0;
+color:rgb(255, 254, 254);
+height: 65px;
+align-items: center;
+}
+nav.logo{
+letter-spacing: 3px;
+}
+nav ul{
+display:flex;
+list-style: none;
+width:40%;
+justify-content: space-between;
+}
+nav ul li a {
+  color:rgb(255, 254, 254);
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+nav ul li a:hover {
+  color:yellow;
+  text-decoration: none;
+  font-size: 1.2em;
+
+  border-bottom: 2px solid yellow;
+}
+
+
+.btn{
+border-radius: 40px;
+}
+/*Hamburger */
+.menu-bars{
+display:none;
+flex-direction: column;
+height:20px;
+justify-content: space-between;
+position:relative;
+  z-index:999;
+}
+.menu-bars input{
+position: absolute;
+width:40px;
+height:28px;
+left:-5px;
+top:-3px;
+opacity: 0;
+cursor:pointer;
+z-index: 2;
+}
+
+.menu-bars span{
+display:block;
+width:28px;
+height:3px;
+background-color:rgb(255, 254, 254);
+border-radius: 3px;
+transition: all 0.3s;
+}
+
+.menu-bars span:nth-child(2){
+transform-origin: 0 0 ;
+}
+
+.menu-bars span:nth-child(4){
+  transform-origin: 0 100% ;
+  }
+
+.menu-bars input:checked ~ span:nth-child(2){
+background-color: white;
+transform: rotate(45deg) translate(-1px, -1px);
+}
+.menu-bars input:checked ~ span:nth-child(4){
+  background-color: white;
+  transform: rotate(-45deg) translate(-1px,0);
+  }
+
+  .menu-bars input:checked ~ span:nth-child(3){
+    opacity: 0;
+    transform: scale(0);
+    }
+
+
+@media only screen and (max-width: 768px){
+nav ul{
+width:50%;
+}
+
+}
+
+@media only screen and (max-width: 576px){
+  .menu-bars{
+  display:flex;
+  }
+  nav ul{
+  position:absolute;
+  right:0;
+  top:0;
+  width:100%;
+  height:100vh;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  background-color:  hsl(241, 25%, 47%);
+  z-index: 1;
+  transform: translateY(-100%);
+  transition: all 1s;
+  }
+  }
+  nav ul.slide{
+    transform: translateY(0);
+  }

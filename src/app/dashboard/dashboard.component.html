@@ -1,0 +1,89 @@
+<img src="../../assets/logo.png" id="logo">
+<dx-popover
+    target="#logo"
+    showEvent="dxhoverstart"
+    hideEvent="dxhoverend">
+<dx-toolbar
+    [items]="toolbarContent"
+    id="tool"
+
+    >
+
+</dx-toolbar>
+<dx-drawer
+
+    [openedStateMode]="selectedOpenMode"
+    [position]="selectedPosition"
+    [revealMode]="selectedRevealMode"
+    template="template"
+    [(opened)]="isDrawerOpen"
+    [height]="800"
+    [closeOnOutsideClick]="false" >
+    <div *dxTemplate="let data of 'template'" style="width: 200px"
+
+    [hoverStateEnabled]="true"
+    [activeStateEnabled]="true"
+    [focusStateEnabled]="true">
+
+
+    <dx-list [height]="1000" class="list-group">
+
+      <dxi-item class="list-group-item list-group-item-action active" ><a routerLink="map"class="disabled-link"> <mat-icon>room</mat-icon> Map</a></dxi-item>
+      <dxi-item class="list-group-item list-group-item-action active"  ><a routerLink="devices" class="disabled-link"><mat-icon>devices_other</mat-icon> Devices</a></dxi-item>
+
+      <dxi-item class="list-group-item list-group-item-action active"  ><a routerLink="realtime" class="disabled-link"><mat-icon>donut_small</mat-icon> Real Time</a></dxi-item>
+             <dxi-item class="list-group-item list-group-item-action active" ><a routerLink="rapport" class="disabled-link"><mat-icon>assignment</mat-icon> Reports</a></dxi-item>
+             <dxi-item class="list-group-item list-group-item-action active"  ><a routerLink="employspaces" class="disabled-link"><mat-icon>room</mat-icon> Employees's Spaces</a></dxi-item>
+             <dxi-item class="list-group-item list-group-item-action active"  ><a routerLink="employees" class="disabled-link"><mat-icon>assignment_ind</mat-icon> Employees</a></dxi-item>
+             <dxi-item class="list-group-item list-group-item-action active"  ><a routerLink="profile" class="disabled-link"><mat-icon>settings</mat-icon> Manage Profile</a></dxi-item>
+
+       </dx-list>
+
+    </div>
+
+
+
+
+    <dx-popup
+    [width]="400"
+    [height]="200"
+    [showTitle]="true"
+    title="Are you sure for disconnecting ?"
+    [dragEnabled]="false"
+    [closeOnOutsideClick]="true"
+    [(visible)]="popuplOGOUT">
+
+
+
+
+
+ <br>
+   &nbsp;&nbsp;
+     <dx-button
+     icon="check"
+     type="danger"
+     text="Yes"
+     (onClick)="logout()"
+     id="log"
+     >
+   </dx-button>
+
+   <dx-button
+     icon="home"
+     type="success"
+     text="No"
+     (onClick)="stay()"
+     id="log"
+     >
+   </dx-button>
+
+
+</dx-popup>
+
+
+
+<div class="route shadow-lg p-3 mb-5 bg-white rounded">  <router-outlet></router-outlet></div>
+
+</dx-drawer></dx-popover>
+
+

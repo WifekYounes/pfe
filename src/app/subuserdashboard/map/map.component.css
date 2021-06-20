@@ -1,0 +1,21 @@
+@import"../../../bootstrap.css";
+
+@import "https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" ;
+.map-wrapper {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin:150px;
+  height:70%;
+}
+
+.map-border {
+  border: 5px solid orange;
+  height: 100%;
+}
+
+#map {
+  height: 100%;
+}

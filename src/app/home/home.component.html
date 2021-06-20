@@ -1,0 +1,98 @@
+
+  <nav>
+    <div class="logo">
+   <img src="../../assets/logo.png" style="width: 120px;height: 50px;">
+  </div>
+
+<ul>
+<li><br><a href="#">Home</a></li>
+<li><br><a routerLink="/login" >Login</a></li>
+<li><br><a href="https://bewireless-solutions.com/">About BWS</a></li>
+
+</ul>
+<div class="menu-bars" id="toggle">
+<input type="checkbox">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</nav>
+<ngb-carousel #carousel [interval]="3000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
+  <ng-template ngbSlide *ngFor="let img of images; index as i">
+
+
+
+    <div class="carousel-caption">
+      <h3>Bws platform IoT on air Quality</h3>
+    </div>
+    <a href="https://bewireless-solutions.com/" target="_blank" rel="nofollow noopener noreferrer">
+      <div class="picsum-img-wrapper">
+        <img [src]="img">
+      </div>
+    </a>
+  </ng-template>
+</ngb-carousel>
+
+
+
+
+
+<div class="card mb-3">
+  <h3 class="card-header"style="text-align:center">Main product </h3>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <h6 class="card-subtitle text-muted"style="text-align:center">Carbon dioxide sensor</h6>
+  </div>
+  <hr>
+  <div>
+<img class="shadow p-3 mb-5 bg-white rounded" src="../../assets/co2.jpg" width ="300px" id="taswira">
+
+<div class="col-lg-4" style="float: right;">
+  <div class="blog-grid">
+      <div class="blog-img">
+          <div class="date">Carbon dioxide sensor</div>
+      </div>
+      <div class="blog-info">
+          <h5><a href="#">Description</a></h5>
+          <p>A <b>carbon dioxide sensor or CO2 sensor</b> is an instrument for the measurement of carbon dioxide
+            s. The most common principles for CO2 sensors are infrared gas sensors (NDIR) and chemical gas sensors.
+             Measuring carbon dioxide is important in monitoring indoor air quality,
+             the function of the lungs in the form of a capnograph device, and many industrial processes.</p>
+          <div class="btn-bar">
+              <a href="https://bewireless-solutions.com/nos-produits/" class="px-btn-arrow">
+                  <span>Read More</span>
+                  <i class="arrow"></i>
+              </a>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+</div>
+
+
+<div class="jumbotron">
+  <h1 class="display-3" style="color:darkgoldenrod">WELCOME TO OUR PLATFORM IoT !</h1>
+  <p class="lead" style="color:white">The company <b>Be Wireless Solutions (BWS)</b> created in 2016, having obtained the IoT license in 2017 and the start up label in 2019.<br>
+
+   Pioneer in the development of IOT (Internet Of Things) solutions in Tunisia for saving resources, including:<br>
+
+      Wireless sensors: for data collection and remote control of connected objects.<br>
+      A connectivity offer: the installation and operation of an IoT network (LoRa).<br>
+      “Business” applications: web and mobile to monitor connected objects in real time and remotely.</p>
+  <hr class="my-4">
+  <h6 style="color:darkgoldenrod">All the credits go to Wifek younes & Fares lamloumm</h6>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+

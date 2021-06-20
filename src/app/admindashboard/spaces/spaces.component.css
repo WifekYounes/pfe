@@ -1,0 +1,16 @@
+@import"../../../bootstrap.css";
+
+::ng-deep #scrollview-demo {
+  min-height: 700px;
+}
+::ng-deep #scrollview {
+  height: 700px;
+  position: absolute;
+  top: 0;
+  bottom: 300px;
+  padding: 20px;
+}
+
+.table
+{margin: auto;
+width: 95%;}

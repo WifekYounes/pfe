@@ -1,0 +1,66 @@
+<h4 class="display-4"  style="text-align: center;">Client Management</h4>
+<hr>
+<dx-button id="exportButton"
+    icon="exportpdf"
+    text="Export to PDF"
+    stylingMode="outlined"
+    type="danger"
+    (onClick)="exportGrid()">
+</dx-button>
+<br>
+<dx-data-grid id="gridContainer" class="table shadow p-3 mb-5 bg-white rounded"
+[dataSource]="dataSource"
+[rowAlternationEnabled]="true"
+(onExporting)="onExporting($event)"
+[showBorders]="true"
+(onRowRemoved)="deleteData($event)"
+(onRowInserted)="insertData($event)"
+
+keyExpr="cin">
+<dxo-export [enabled]="true"></dxo-export>
+
+<dxo-paging [pageSize]="5"></dxo-paging>
+
+<dxo-editing mode="form"   [useIcons]="true"  [allowAdding]="true" [allowDeleting]="true"></dxo-editing>
+<dxo-search-panel
+[visible]="true"
+
+></dxo-search-panel>
+
+<dxi-column dataField="cin" caption="CIN" dataType="number" [width] ="100">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+</dxi-column>
+<dxi-column dataField="subuser.name" caption="FirstName">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+</dxi-column>
+<dxi-column dataField="subuser.username" caption="username" [visible]="false">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+</dxi-column>
+<dxi-column dataField="subuser.password" caption="password"    [editorOptions]="{ mode: 'password' }" [visible]="false">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+</dxi-column>
+<dxi-column dataField="subuser.surname" caption="LastName">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+</dxi-column>
+<dxi-column dataField="subuser.dateBirth" caption="Birth Date" dataType="date">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+</dxi-column>
+<dxi-column dataField="subuser.tel" caption="Phone" dataType="number">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+</dxi-column>
+
+
+<dxi-column dataField="subuser.email" caption="E-mail" dataType="email">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+  <dxi-validation-rule type="email"></dxi-validation-rule>
+  </dxi-column>
+
+  <dxi-column type="buttons" [width]="110" caption="Actions">
+
+    <dxi-button name="delete"></dxi-button>
+
+    </dxi-column>
+
+
+
+</dx-data-grid>

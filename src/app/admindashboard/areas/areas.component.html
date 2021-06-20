@@ -1,0 +1,117 @@
+
+
+
+
+<h4 class="display-4" style="text-align: center;">Add new area(s) and space(s)</h4>
+<hr>
+
+
+<br>
+
+<div class="map-wrapper" >
+    <div class="map-border" >
+        <div id="map" >
+
+        </div>
+    </div>
+</div>
+<br>
+
+
+
+
+
+
+<dx-popup
+[width]="500"
+[height]="350"
+[showTitle]="true"
+title="Adding a space"
+[dragEnabled]="false"
+[closeOnOutsideClick]="true"
+[(visible)]="this.adminService.popupspace">
+
+
+  <div class="form-login">
+
+<form>
+
+
+ <b> Name:  </b>     <dx-text-box [(value)]="name" dataField="name" required="true">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+ </dx-text-box><br>
+
+ <b> Area:  </b>  <dx-select-box [dataSource]="areas"    displayExpr="name"
+ [(value)]="idArea"
+ valueExpr="idArea">
+ <dxi-validation-rule type="required"></dxi-validation-rule>
+</dx-select-box><br>
+
+
+
+
+</form>
+
+<br>
+<br>
+&nbsp;&nbsp;
+ <dx-button
+ icon="plus"
+ type="success"
+ text="Add"
+
+ (onClick)="addS()"
+ id="log"
+ >
+</dx-button>
+
+
+</div>
+
+</dx-popup>
+
+
+
+
+<dx-popup
+[width]="500"
+[height]="250"
+[showTitle]="true"
+title="Adding an area"
+[dragEnabled]="false"
+[closeOnOutsideClick]="true"
+[(visible)]="this.adminService.popuparea">
+
+
+  <div class="form-login">
+
+<form>
+
+
+ <b> Name:  </b>     <dx-text-box [(value)]="name" dataField="name" required="true">
+  <dxi-validation-rule type="required"></dxi-validation-rule>
+ </dx-text-box><br>
+
+
+
+
+</form>
+
+<br>
+<br>
+&nbsp;&nbsp;
+ <dx-button
+ icon="plus"
+ type="success"
+ text="Add"
+
+ (onClick)="addA()"
+ id="log"
+ >
+</dx-button>
+
+
+</div>
+
+</dx-popup>
+
